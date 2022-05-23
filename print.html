@@ -1,0 +1,743 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The MiniJuvix Book</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction/about/what-is.html"><strong aria-hidden="true">1.</strong> MiniJuvix</a></li><li class="chapter-item expanded "><a href="introduction/getting-started.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="examples/index.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="examples/backend-specific/minic-hello-world.html"><strong aria-hidden="true">3.1.</strong> Hello world</a></li><li class="chapter-item expanded "><a href="examples/validity-predicates/PolyFungibleToken.html"><strong aria-hidden="true">3.2.</strong> Fungible Token</a></li></ol></li><li class="chapter-item expanded "><a href="language-reference/index.html"><strong aria-hidden="true">4.</strong> Language reference</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language-reference/comments.html"><strong aria-hidden="true">4.1.</strong> Comments</a></li><li class="chapter-item expanded "><a href="language-reference/axiom.html"><strong aria-hidden="true">4.2.</strong> Axiom</a></li><li class="chapter-item expanded "><a href="language-reference/functions.html"><strong aria-hidden="true">4.3.</strong> Function</a></li><li class="chapter-item expanded "><a href="language-reference/modules.html"><strong aria-hidden="true">4.4.</strong> Module System</a></li><li class="chapter-item expanded "><a href="language-reference/inductive-data-types.html"><strong aria-hidden="true">4.5.</strong> Inductive data type</a></li><li class="chapter-item expanded "><a href="language-reference/termination-checking.html"><strong aria-hidden="true">4.6.</strong> Termination checking</a></li><li class="chapter-item expanded "><a href="language-reference/compile-blocks.html"><strong aria-hidden="true">4.7.</strong> Compile block</a></li><li class="chapter-item expanded "><a href="language-reference/foreign-blocks.html"><strong aria-hidden="true">4.8.</strong> Foreign block</a></li><li class="chapter-item expanded "><a href="backends/index.html"><strong aria-hidden="true">4.9.</strong> Backends</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="backends/minic.html"><strong aria-hidden="true">4.9.1.</strong> MiniC backend</a></li><li class="chapter-item expanded "><a href="backends/minihaskell.html"><strong aria-hidden="true">4.9.2.</strong> MiniHaskell backend</a></li></ol></li><li class="chapter-item expanded "><a href="compiler-architecture/index.html"><strong aria-hidden="true">4.10.</strong> Compiler architecture</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="compiler-architecture/pipeline.html"><strong aria-hidden="true">4.10.1.</strong> Pipeline</a></li><li class="chapter-item expanded "><a href="compiler-architecture/languages.html"><strong aria-hidden="true">4.10.2.</strong> Internal languages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="compiler-architecture/language/abstract.html"><strong aria-hidden="true">4.10.2.1.</strong> Abstract Language</a></li><li class="chapter-item expanded "><a href="compiler-architecture/language/concrete.html"><strong aria-hidden="true">4.10.2.2.</strong> Concrete language</a></li><li class="chapter-item expanded "><a href="compiler-architecture/language/microjuvix.html"><strong aria-hidden="true">4.10.2.3.</strong> MicroJuvix Language</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="tooling/index.html"><strong aria-hidden="true">5.</strong> Tooling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tools/CLI.html"><strong aria-hidden="true">5.1.</strong> Command line Interface</a></li><li class="chapter-item expanded "><a href="tools/emacs-mode.html"><strong aria-hidden="true">5.2.</strong> Writting MiniJuvix programs with Emacs Mode</a></li><li class="chapter-item expanded "><a href="tools/testing.html"><strong aria-hidden="true">5.3.</strong> Test Suite</a></li></ol></li><li class="chapter-item expanded "><a href="introduction/about/what-is.html"><strong aria-hidden="true">6.</strong> About</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/about/team.html"><strong aria-hidden="true">6.1.</strong> The Dev Team</a></li><li class="chapter-item expanded "><a href="introduction/about/community.html"><strong aria-hidden="true">6.2.</strong> Community</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The MiniJuvix Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="minijuvix"><a class="header" href="#minijuvix">MiniJuvix</a></h1>
+<a href="https://github.com/heliaxdev/minijuvix/blob/main/LICENSE">
+<img alt="LICENSE" src="https://img.shields.io/badge/license-GPL--3.0--only-blue.svg" />
+</a>
+<a href="https://github.com/heliaxdev/MiniJuvix/actions/workflows/ci.yml">
+<img alt="CI status" src="https://github.com/heliaxdev/MiniJuvix/actions/workflows/ci.yml/badge.svg" />
+</a>
+<a href="https://github.com/heliaxdev/minijuvix/tags">
+<img alt="" src="https://img.shields.io/github/v/release/heliaxdev/minijuvix?include_prereleases" />
+</a>
+<a href="https://github.com/heliaxdev/minijuvix/issues">
+<img alt="" src="https://img.shields.io/github/issues/heliaxdev/minijuvix" />
+</a>
+<a href="https://github.com/heliaxdev/MiniJuvix">
+<img align="right" width="300" height="300" alt="MiniJuvix Mascot" src="https://juvix.org/_nuxt/img/seating-mascot.051c86a.svg" />
+</a>
+<p>MiniJuvix is a pre-alpha programming language for writing efficient
+formally-verified <a href="https://anoma.network/blog/validity-predicates/">validity
+predicates</a>, which can
+be deployed to various distributed ledgers. MiniJuvix is part of the
+Anoma's Juvix Toolkit. At the moment, this is software released for
+experimentation and research purposes only as no warranty is provided or
+implied yet.</p>
+<p>MiniJuvix aims to address many issues that we have experienced while
+trying to write and deploy decentralized applications present in the
+ecosystem of smart-contracts:</p>
+<ul>
+<li>the difficulty of adequate program verification,</li>
+<li>the ceiling of compositional complexity,</li>
+<li>the illegibility of execution costs, and</li>
+<li>the lock-in to particular backends.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting started</a></h1>
+<h2 id="quick-start"><a class="header" href="#quick-start">Quick Start</a></h2>
+<a href="https://github.com/heliaxdev/MiniJuvix">
+<img align="left" width="200" height="200" alt="MiniJuvix Mascot" src="https://juvix.org/_nuxt/img/teaching-mascot.f828959.svg" />
+</a>
+<p>To install MiniJuvix, you can download its sources using
+<a href="http://git-scm.com/">Git</a> from the <a href="https://github.com/heliaxdev/minijuvix.git">Github
+repository</a>. Then, the
+program can be downloaded and installed with the following commands. You
+will need to have <a href="https://haskellstack.org">Stack</a> installed.</p>
+<pre><code>git clone https://github.com/heliaxdev/minijuvix.git
+cd minijuvix
+stack install
+</code></pre>
+<p>If the installation succeeds, you must be able to run the <code>minijuvix</code>
+command from any location.</p>
+<p>To get the complete list of commands, please run <code>minijuvix --help</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="examples/./examples/backend-specific/minic-hello-world.html">Hello world</a></li>
+<li><a href="examples/./examples/validity-predicates/PolyFungibleToken.html">Fungible
+Token</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mini-c-hello-world"><a class="header" href="#mini-c-hello-world">Mini C Hello World</a></h1>
+<p>In the following example a MiniJuvix file is compiled using the C
+backend.</p>
+<pre><code>-- tests/positive/MiniC/HelloWorld/Input.mjuvix
+module Input;
+
+axiom String : Type;
+
+compile String {
+  c ↦ &quot;char*&quot;;
+};
+
+axiom Action : Type;
+
+compile Action {
+  c ↦ &quot;int&quot;;
+};
+
+axiom put-str-ln : String → Action;
+
+compile put-str-ln {
+  c ↦ &quot;putStrLn&quot;;
+};
+
+main : Action;
+main ≔ put-str-ln &quot;hello world!&quot;;
+
+end;
+</code></pre>
+<p>The result is compiled to WASM using <a href="https://llvm.org">Clang</a> and then
+executed using <a href="https://wasmer.io">wasmer</a>.</p>
+<p>NB: Set the <code>WASI_SYSROOT_PATH</code> environment variable to the root of the
+WASI sysroot. See <a href="examples/backend-specific/minic-hello-world.html#Dependencies">Dependencies</a> for instructions on how
+to install the sysroot.</p>
+<pre><code>cd tests/positive/MiniC/HelloWorld
+minijuvix minic Input.mjuvix | clang --target=wasm32-wasi -nodefaultlibs -lc --sysroot $WASI_SYSROOT_PATH -I../../../../minic-runtime/libc -x c - -o out.wasm &amp;&amp; wasmer out.wasm
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><pre><code>-- tests/positive/FullExamples/PolySimpleFungibleToken.mjuvix
+module PolySimpleFungibleToken;
+
+foreign ghc {
+  import Anoma
+};
+
+--------------------------------------------------------------------------------
+-- Booleans
+--------------------------------------------------------------------------------
+
+inductive Bool {
+  true : Bool;
+  false : Bool;
+};
+
+infixr 2 ||;
+|| : Bool → Bool → Bool;
+|| false a ≔ a;
+|| true _ ≔ true;
+
+infixr 3 &amp;&amp;;
+&amp;&amp; : Bool → Bool → Bool;
+&amp;&amp; false _ ≔ false;
+&amp;&amp; true a ≔ a;
+
+if : (A : Type) → Bool → A → A → A;
+if _ true a _ ≔ a;
+if _ false _ b ≔ b;
+
+--------------------------------------------------------------------------------
+-- Backend Booleans
+--------------------------------------------------------------------------------
+
+axiom BackendBool : Type;
+
+compile BackendBool {
+  ghc ↦ &quot;Bool&quot;;
+};
+
+axiom backend-true : BackendBool;
+compile backend-true {
+  ghc ↦ &quot;True&quot;;
+};
+
+axiom backend-false : BackendBool;
+compile backend-false {
+  ghc ↦ &quot;False&quot;;
+};
+
+--------------------------------------------------------------------------------
+-- Backend Bridge
+--------------------------------------------------------------------------------
+
+foreign ghc {
+  bool :: Bool -&gt; a -&gt; a -&gt; a
+  bool True x _ = x
+  bool False _ y = y
+};
+
+axiom bool : BackendBool → Bool → Bool → Bool;
+compile bool {
+  ghc ↦ &quot;bool&quot;;
+};
+
+from-backend-bool : BackendBool → Bool;
+from-backend-bool bb ≔ bool bb true false;
+
+--------------------------------------------------------------------------------
+-- Functions
+--------------------------------------------------------------------------------
+
+const : (A : Type) → (B : Type) → A → B → A;
+const _ _ a _ ≔ a;
+
+id : (A : Type) → A → A;
+id _ a ≔ a;
+
+--------------------------------------------------------------------------------
+-- Integers
+--------------------------------------------------------------------------------
+
+axiom Int : Type;
+compile Int {
+  ghc ↦ &quot;Int&quot;;
+};
+
+infix 4 &lt;';
+axiom &lt;' : Int → Int → BackendBool;
+compile &lt;' {
+  ghc ↦ &quot;(&lt;)&quot;;
+};
+
+infix 4 &lt;;
+&lt; : Int → Int → Bool;
+&lt; i1 i2 ≔ from-backend-bool (i1 &lt;' i2);
+
+axiom eqInt : Int → Int → BackendBool;
+compile eqInt {
+  ghc ↦ &quot;(==)&quot;;
+};
+
+infix 4 ==Int;
+==Int : Int → Int → Bool;
+==Int i1 i2 ≔ from-backend-bool (eqInt i1 i2);
+
+infixl 6 -;
+axiom - : Int -&gt; Int -&gt; Int;
+compile - {
+  ghc ↦ &quot;(-)&quot;;
+};
+
+infixl 6 +;
+axiom + : Int -&gt; Int -&gt; Int;
+compile + {
+  ghc ↦ &quot;(+)&quot;;
+};
+
+--------------------------------------------------------------------------------
+-- Strings
+--------------------------------------------------------------------------------
+
+axiom String : Type;
+compile String {
+  ghc ↦ &quot;[Char]&quot;;
+};
+
+axiom eqString : String → String → BackendBool;
+compile eqString  {
+  ghc ↦ &quot;(==)&quot;;
+};
+
+infix 4 ==String;
+==String : String → String → Bool;
+==String s1 s2 ≔ from-backend-bool (eqString s1 s2);
+
+--------------------------------------------------------------------------------
+-- Lists
+--------------------------------------------------------------------------------
+
+inductive List (A : Type) {
+  nil : List A;
+  cons : A → List A → List A;
+};
+
+elemGen : (A : Type) → (A → A → Bool) → A → List A → Bool;
+elemGen _ _ _ nil ≔ false;
+elemGen A eq s (cons x xs) ≔ eq s x || elemGen A eq s xs;
+
+elem : String → List String → Bool;
+elem s l ≔ elemGen String (==String) s l;
+
+foldl : (A : Type) → (B : Type) → (B → A → B) → B → List A → B;
+foldl _ _ f z nil ≔ z;
+foldl A B f z (cons h hs) ≔ foldl A B f (f z h) hs;
+
+--------------------------------------------------------------------------------
+-- Pair
+--------------------------------------------------------------------------------
+
+-- inductive PairIntBool {
+--   MakePair : Int → Bool → PairIntBool;
+-- };
+
+inductive Pair (A : Type) (B : Type) {
+  mkPair : A → B → Pair A B;
+};
+
+if-pairIntBool : Bool → Pair Int Bool → Pair Int Bool → Pair Int Bool;
+if-pairIntBool ≔ if (Pair Int Bool);
+
+--------------------------------------------------------------------------------
+-- Maybe
+--------------------------------------------------------------------------------
+
+inductive Maybe (A : Type) {
+ nothing : Maybe A;
+ just : A → Maybe A;
+};
+
+if-optionInt : Bool → Maybe Int → Maybe Int → Maybe Int;
+if-optionInt ≔ if (Maybe Int);
+
+from-int : Int → Maybe Int;
+from-int i ≔ if-optionInt (i &lt; 0) (nothing Int) (just Int i);
+
+maybe : (A : Type) → (B : Type) → B → (A → B) → Maybe A → B;
+maybe _ _ b _ nothing ≔ b;
+maybe _ _ _ f (just x) ≔ f x;
+
+maybe-int : Int → Maybe Int → Int;
+maybe-int d ≔ maybe Int Int d (id Int);
+
+if-optionString : Bool → Maybe String → Maybe String → Maybe String;
+if-optionString ≔ if (Maybe String);
+
+from-string : String → Maybe String;
+from-string s ≔ if-optionString (s ==String &quot;&quot;) (nothing String) (just String s);
+
+pair-from-optionString : (String → Pair Int Bool) → Maybe String → Pair Int Bool;
+pair-from-optionString ≔ maybe String (Pair Int Bool) (mkPair Int Bool 0 false);
+
+--------------------------------------------------------------------------------
+-- foldl
+--------------------------------------------------------------------------------
+
+foldl' : (Pair Int Bool → String → Pair Int Bool) → Pair Int Bool → List String → Pair Int Bool;
+foldl' ≔ foldl String (Pair Int Bool) ;
+
+--------------------------------------------------------------------------------
+-- Anoma
+--------------------------------------------------------------------------------
+
+axiom readPre : String → Int;
+compile readPre {
+  ghc ↦ &quot;readPre&quot;;
+};
+
+axiom readPost : String → Int;
+compile readPost {
+  ghc ↦ &quot;readPost&quot;;
+};
+
+axiom isBalanceKey : String → String → String;
+compile isBalanceKey {
+  ghc ↦ &quot;isBalanceKey&quot;;
+};
+
+read-pre : String → Maybe Int;
+read-pre s ≔ from-int (readPre s);
+
+read-post : String → Maybe Int;
+read-post s ≔ from-int (readPost s);
+
+is-balance-key : String → String → Maybe String;
+is-balance-key token key ≔ from-string (isBalanceKey token key);
+
+unwrap-default : Maybe Int → Int;
+unwrap-default o ≔ maybe-int 0 o;
+
+--------------------------------------------------------------------------------
+-- Validity Predicate
+--------------------------------------------------------------------------------
+
+change-from-key : String → Int;
+change-from-key key ≔ unwrap-default (read-post key) - unwrap-default (read-pre key);
+
+check-vp : List String → String → Int → String → Pair Int Bool;
+check-vp verifiers key change owner ≔
+    if-pairIntBool
+        (change-from-key key &lt; 0)
+        -- make sure the spender approved the transaction
+        (mkPair Int Bool (change + (change-from-key key)) (elem owner verifiers))
+        (mkPair Int Bool (change + (change-from-key key)) true);
+
+check-keys : String → List String → Pair Int Bool → String → Pair Int Bool;
+check-keys token verifiers (mkPair change is-success) key ≔
+    if-pairIntBool
+        is-success
+        (pair-from-optionString (check-vp verifiers key change) (is-balance-key token key))
+        (mkPair Int Bool 0 false);
+
+check-result : Pair Int Bool → Bool;
+check-result (mkPair change all-checked) ≔ (change ==Int 0) &amp;&amp; all-checked;
+
+vp : String → List String → List String → Bool;
+vp token keys-changed verifiers ≔
+    check-result
+        (foldl'
+            (check-keys token verifiers)
+            (mkPair Int Bool 0 true)
+            keys-changed);
+
+--------------------------------------------------------------------------------
+-- IO
+--------------------------------------------------------------------------------
+
+axiom Action : Type;
+compile Action {
+ ghc ↦ &quot;IO ()&quot;;
+};
+
+axiom putStr : String → Action;
+compile putStr {
+  ghc ↦ &quot;putStr&quot;;
+};
+
+axiom putStrLn : String → Action;
+compile putStrLn {
+  ghc ↦ &quot;putStrLn&quot;;
+};
+
+infixl 1 &gt;&gt;;
+axiom &gt;&gt; : Action → Action → Action;
+compile &gt;&gt; {
+  ghc ↦ &quot;(&gt;&gt;)&quot;;
+};
+
+show-result : Bool → String;
+show-result true ≔ &quot;OK&quot;;
+show-result false ≔ &quot;FAIL&quot;;
+
+--------------------------------------------------------------------------------
+-- Testing VP
+--------------------------------------------------------------------------------
+
+token : String;
+token ≔ &quot;owner-token&quot;;
+
+owner-address : String;
+owner-address ≔ &quot;owner-address&quot;;
+
+change1-key : String;
+change1-key ≔ &quot;change1-key&quot;;
+
+change2-key : String;
+change2-key ≔ &quot;change2-key&quot;;
+
+verifiers : List String;
+verifiers ≔ cons String owner-address (nil String);
+
+keys-changed : List String;
+keys-changed ≔ cons String change1-key (cons String change2-key (nil String));
+
+main : Action;
+main ≔
+    (putStr &quot;VP Status: &quot;)
+    &gt;&gt; (putStrLn (show-result (vp token keys-changed verifiers)));
+
+end;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="language-reference/./language-reference/comments.html">Comments</a></li>
+<li><a href="language-reference/./language-reference/axiom.html">Axiom</a></li>
+<li><a href="language-reference/./language-reference/functions.html">Function</a></li>
+<li><a href="language-reference/./language-reference/modules.html">Module System</a></li>
+<li><a href="language-reference/./language-reference/inductive-data-types.html">Inductive data type</a></li>
+<li><a href="language-reference/./language-reference/termination-checking.html">Termination checking</a></li>
+<li><a href="language-reference/./language-reference/compile-blocks.html">Compile block</a></li>
+<li><a href="language-reference/./language-reference/foreign-blocks.html">Foreign block</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="comments"><a class="header" href="#comments">Comments</a></h1>
+<p>A comment is introduced in the same fashion as in Haskell/Agda.</p>
+<ul>
+<li>Inline Comment</li>
+</ul>
+<!-- -->
+<pre><code>-- This is a comment!
+</code></pre>
+<ul>
+<li>Region comment</li>
+</ul>
+<!-- -->
+<pre><code>{-
+    This is a comment!
+
+-}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="axiom"><a class="header" href="#axiom">Axiom</a></h1>
+<p>An axiom/postulate can be introduced by using the <code>axiom</code> keyword. For
+example, let us imagine one wants to write a program that assumes <em>A</em> is
+a type and there exist a term <em>x</em> that inhabits <em>A</em>. Then the program
+would like like the following.</p>
+<pre><code>-- Example.mjuvix
+module Example;
+ axiom A : Type;
+ axom x : A;
+end;
+</code></pre>
+<p>Terms introduced by the <code>axiom</code> keyword lack of any computational
+content. However, it is possible to attach a computational content to an
+axiom by giving compilation rules, see <a href="language-reference/./language-reference/compile-blocks.html">Compile
+blocks</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="function-declaration"><a class="header" href="#function-declaration">Function declaration</a></h1>
+<p>In MiniJuvix, a function declaration is a type signature <em>and</em> a group
+of definitions called <em>function clauses</em>.</p>
+<pre><code>fun : A → B;
+fun case1 := ...;
+fun case2 := ...;
+fun case3 := ...;
+</code></pre>
+<h2 id="mutual-recursive-functions"><a class="header" href="#mutual-recursive-functions">Mutual recursive functions</a></h2>
+<pre><code>f : A -&gt; A -&gt; A;
+g : A -&gt; A -&gt; A;
+
+g x y := f x x;
+f x y := g x (f x x);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="module-system"><a class="header" href="#module-system">Module system</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="termination-checking"><a class="header" href="#termination-checking">Termination checking</a></h1>
+<p>To not bring inconsistencies by function declarations, MiniJuvix
+requires that all function pass the termination checker. This check is
+called before the typechecking in the compilation pipeline.</p>
+<p>Since the former requirement is vital but often tricky to fulfill for
+programs in a total language like MiniJuvix. It is convenient to have a
+way to bypass the termination checking. The user may be certain their
+programs are terminating even when our termination checker algorithm can
+not see it. The termination checker is limited as it only accepts a
+subset of recursion functions. Our termination checker algorithm is a
+slightly modification of the algorithm for checking terminationg of the
+Foetus's language.</p>
+<p>To skip the termination checker, we introduced the <code>terminating</code> keyword
+to annotate a type signature as terminating. The syntax is the
+following.</p>
+<pre><code>terminating fun : A → B;
+</code></pre>
+<p>Annotating a function as <code>terminating</code> means that <em>all</em> its function
+clauses pass the termination checker's criterion. To skip the
+termination checker for mutual recursive functions, all the functions
+involved must be annotated as <code>terminating</code>, otherwise, the checker will
+complain.</p>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="backends/./backends/minic.html">MiniC backend</a></li>
+<li><a href="backends/./backends/minihaskell.html">MiniHaskell backend</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="minic-backend"><a class="header" href="#minic-backend">MiniC Backend</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="minihaskell-backend"><a class="header" href="#minihaskell-backend">MiniHaskell Backend</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="compiler-architecture"><a class="header" href="#compiler-architecture">Compiler architecture</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pipeline"><a class="header" href="#pipeline">Pipeline</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="internal-minijuvix-languages"><a class="header" href="#internal-minijuvix-languages">Internal MiniJuvix languages</a></h1>
+<h2 id="languages"><a class="header" href="#languages">Languages</a></h2>
+<ul>
+<li><a href="compiler-architecture/./compiler-architecture/language/abstract.html">Abstract Language</a></li>
+<li><a href="compiler-architecture/./compiler-architecture/language/concrete.html">Concrete language</a></li>
+<li><a href="compiler-architecture/./compiler-architecture/language/microjuvix.html">MicroJuvix
+Language</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="abstract-internal-language"><a class="header" href="#abstract-internal-language">Abstract Internal Language</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="concrete-internal-language"><a class="header" href="#concrete-internal-language">Concrete Internal Language</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="microjuvix-internal-language"><a class="header" href="#microjuvix-internal-language">MicroJuvix Internal Language</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="tooling/./tools/CLI.html">Command line Interface</a></li>
+<li><a href="tooling/./tools/emacs-mode.html">Writting MiniJuvix programs with Emacs Mode</a></li>
+<li><a href="tooling/./tools/testing.html">Test Suite</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="command-line-interface"><a class="header" href="#command-line-interface">Command line Interface</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="writting-minijuvix-programs-with-emacs-mode"><a class="header" href="#writting-minijuvix-programs-with-emacs-mode">Writting MiniJuvix programs with Emacs Mode</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="test-suite"><a class="header" href="#test-suite">Test Suite</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="minijuvix-1"><a class="header" href="#minijuvix-1">MiniJuvix</a></h1>
+<a href="https://github.com/heliaxdev/minijuvix/blob/main/LICENSE">
+<img alt="LICENSE" src="https://img.shields.io/badge/license-GPL--3.0--only-blue.svg" />
+</a>
+<a href="https://github.com/heliaxdev/MiniJuvix/actions/workflows/ci.yml">
+<img alt="CI status" src="https://github.com/heliaxdev/MiniJuvix/actions/workflows/ci.yml/badge.svg" />
+</a>
+<a href="https://github.com/heliaxdev/minijuvix/tags">
+<img alt="" src="https://img.shields.io/github/v/release/heliaxdev/minijuvix?include_prereleases" />
+</a>
+<a href="https://github.com/heliaxdev/minijuvix/issues">
+<img alt="" src="https://img.shields.io/github/issues/heliaxdev/minijuvix" />
+</a>
+<a href="https://github.com/heliaxdev/MiniJuvix">
+<img align="right" width="300" height="300" alt="MiniJuvix Mascot" src="https://juvix.org/_nuxt/img/seating-mascot.051c86a.svg" />
+</a>
+<p>MiniJuvix is a pre-alpha programming language for writing efficient
+formally-verified <a href="https://anoma.network/blog/validity-predicates/">validity
+predicates</a>, which can
+be deployed to various distributed ledgers. MiniJuvix is part of the
+Anoma's Juvix Toolkit. At the moment, this is software released for
+experimentation and research purposes only as no warranty is provided or
+implied yet.</p>
+<p>MiniJuvix aims to address many issues that we have experienced while
+trying to write and deploy decentralized applications present in the
+ecosystem of smart-contracts:</p>
+<ul>
+<li>the difficulty of adequate program verification,</li>
+<li>the ceiling of compositional complexity,</li>
+<li>the illegibility of execution costs, and</li>
+<li>the lock-in to particular backends.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-minijuvix-dev-team"><a class="header" href="#the-minijuvix-dev-team">The MiniJuvix Dev Team</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="minijuvix-community"><a class="header" href="#minijuvix-community">MiniJuvix community</a></h1>
+<p>We would love to hear what you think of MiniJuvix! Join us on
+<a href="https://discord.gg/nsGaCZzJ">Discord</a></p>
+<p>This project is part of a bigger effort called
+<a href="https://anoma.net/">Anoma</a>. Anoma is a suite of protocols and
+mechanisms for self-contained, self-sovereign coordination. Join the
+<a href="https://anoma.net/community">Anoma project</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>
