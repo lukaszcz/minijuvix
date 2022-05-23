@@ -40,6 +40,7 @@ data Command
   | DisplayVersion
   | DisplayRoot
   | Highlight HighlightOptions
+  | LspServer
 
 newtype HighlightOptions = HighlightOptions
   { _highlightInputFile :: FilePath
@@ -85,7 +86,8 @@ parseCommand =
             commandMicroJuvix,
             commandMiniHaskell,
             commandMiniC,
-            commandHighlight
+            commandHighlight,
+            commandLspServer
           ]
       )
   where
@@ -133,6 +135,14 @@ parseCommand =
           info
             (Highlight <$> parseHighlight)
             (progDesc "Highlight a MiniJuvix file")
+
+    commandLspServer :: Mod CommandFields Command
+    commandLspServer = command "lsp-server" minfo
+      where
+        minfo :: ParserInfo Command
+        minfo =
+          info (pure LspServer)
+          (progDesc "Launch lsp server")
 
     commandParse :: Mod CommandFields Command
     commandParse = command "parse" minfo

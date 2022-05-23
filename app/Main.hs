@@ -34,6 +34,7 @@ import MiniJuvix.Translation.ScopedToAbstract qualified as Abstract
 import MiniJuvix.Utils.Version (runDisplayVersion)
 import Options.Applicative
 import Text.Show.Pretty hiding (Html)
+import MiniJuvix.LSP.Server (server)
 
 minijuvixYamlFile :: FilePath
 minijuvixYamlFile = "minijuvix.yaml"
@@ -110,6 +111,7 @@ runCLI cli = do
   case cli ^. cliCommand of
     DisplayVersion -> embed runDisplayVersion
     DisplayRoot -> say (pack root)
+    LspServer -> void (embed server)
     Highlight o -> do
       res <- runPipelineEither (upToScoping (getEntryPoint root o))
       absP <- embed (makeAbsolute (o ^. highlightInputFile))

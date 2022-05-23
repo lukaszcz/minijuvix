@@ -44,6 +44,7 @@ cliMainFile = aux . (^. cliCommand)
       MonoJuvix s -> Just (s ^. monoJuvixInputFile)
       DisplayVersion -> Nothing
       DisplayRoot -> Nothing
+      LspServer -> Nothing
 
 makeAbsPaths :: CLI -> IO CLI
 makeAbsPaths = traverseOf cliCommand aux
@@ -63,6 +64,7 @@ makeAbsPaths = traverseOf cliCommand aux
       MonoJuvix s -> MonoJuvix <$> traverseOf monoJuvixInputFile makeAbsolute s
       DisplayVersion -> return DisplayVersion
       DisplayRoot -> return DisplayRoot
+      LspServer -> return LspServer
 
 descr :: ParserInfo CLI
 descr =
