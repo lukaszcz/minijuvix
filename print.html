@@ -173,6 +173,115 @@ ecosystem of smart-contracts:</p>
 <a href="https://github.com/heliaxdev/MiniJuvix">
 <img align="right" width="300" height="300" alt="MiniJuvix Mascot" src="https://juvix.org/_nuxt/img/greeting-mascot.ad540a1.svg" />
 </a>
+<h2 id="v020"><a class="header" href="#v020"><a href="https://github.com/heliaxdev/minijuvix/tree/v0.2.0">v0.2.0</a></a></h2>
+<p>(2022-06-28)</p>
+<p><a href="https://github.com/heliaxdev/minijuvix/compare/v0.1.4...v0.2.0">Full
+Changelog</a></p>
+<p><strong>Implemented enhancements:</strong></p>
+<ul>
+<li>Support built in types
+<a href="https://github.com/heliaxdev/minijuvix/pull/192">#192</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Support partial application and closure passing in C backend
+<a href="https://github.com/heliaxdev/minijuvix/pull/190">#190</a>
+(<a href="https://github.com/paulcadman">paulcadman</a>)</li>
+<li>Allow <code>open import</code> statements
+<a href="https://github.com/heliaxdev/minijuvix/pull/175">#175</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Remove TypeAny and adapt typechecking for literals
+<a href="https://github.com/heliaxdev/minijuvix/pull/173">#173</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Allow holes to be refined into function types
+<a href="https://github.com/heliaxdev/minijuvix/pull/165">#165</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Support implicit arguments
+<a href="https://github.com/heliaxdev/minijuvix/pull/144">#144</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Add support for holes in type signatures
+<a href="https://github.com/heliaxdev/minijuvix/pull/141">#141</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Support function closures with no environment in minic
+<a href="https://github.com/heliaxdev/minijuvix/pull/137">#137</a>
+(<a href="https://github.com/paulcadman">paulcadman</a>)</li>
+<li>Add holes for expressions in function clauses and inference support
+<a href="https://github.com/heliaxdev/minijuvix/pull/136">#136</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Add &quot;-Oz&quot; optimization flag to clang args
+<a href="https://github.com/heliaxdev/minijuvix/pull/133">#133</a>
+(<a href="https://github.com/paulcadman">paulcadman</a>)</li>
+<li>Add version and help option and root command to the CLI
+<a href="https://github.com/heliaxdev/minijuvix/pull/131">#131</a>
+(<a href="https://github.com/jonaprieto">jonaprieto</a>)</li>
+</ul>
+<p><strong>Fixed bugs:</strong></p>
+<ul>
+<li>Fix: Ignore implicit patterns and arguments in termination checking
+<a href="https://github.com/heliaxdev/minijuvix/pull/172">#172</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Fix: pretty printing for terminating keyword
+<a href="https://github.com/heliaxdev/minijuvix/pull/145">#145</a>
+(<a href="https://github.com/jonaprieto">jonaprieto</a>)</li>
+</ul>
+<p><strong>Merged pull requests:</strong></p>
+<ul>
+<li>Fix: proper error handling for typechecker errors
+<a href="https://github.com/heliaxdev/minijuvix/pull/189">#189</a>
+(<a href="https://github.com/jonaprieto">jonaprieto</a>)</li>
+<li>Add minijuvix version info and date to HTML output
+<a href="https://github.com/heliaxdev/minijuvix/pull/186">#186</a>
+(<a href="https://github.com/jonaprieto">jonaprieto</a>)</li>
+<li>Fix: Add check for constructor return types
+<a href="https://github.com/heliaxdev/minijuvix/pull/182">#182</a>
+(<a href="https://github.com/jonaprieto">jonaprieto</a>)</li>
+<li>Use Abstract name in Abstract syntax and Micro/MonoJuvix
+<a href="https://github.com/heliaxdev/minijuvix/pull/181">#181</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Add an option to specify the path where to put the HTML output
+<a href="https://github.com/heliaxdev/minijuvix/pull/179">#179</a>
+(<a href="https://github.com/jonaprieto">jonaprieto</a>)</li>
+<li>Upgrade to ghc-9.2.3
+<a href="https://github.com/heliaxdev/minijuvix/pull/178">#178</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Replace dead link in README with a link to the MiniJuvix book
+<a href="https://github.com/heliaxdev/minijuvix/pull/177">#177</a>
+(<a href="https://github.com/paulcadman">paulcadman</a>)</li>
+<li>Embed HTML assets in the minijuvix binary
+<a href="https://github.com/heliaxdev/minijuvix/pull/176">#176</a>
+(<a href="https://github.com/paulcadman">paulcadman</a>)</li>
+<li>Fix: identifiers with a keyword prefix cannot be parsed
+<a href="https://github.com/heliaxdev/minijuvix/pull/171">#171</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Improve filepath equality
+<a href="https://github.com/heliaxdev/minijuvix/pull/170">#170</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Update validity predicate milestone example to 0.2 syntax
+<a href="https://github.com/heliaxdev/minijuvix/pull/167">#167</a>
+(<a href="https://github.com/paulcadman">paulcadman</a>)</li>
+<li>Fix links in documentation and update to new syntax
+<a href="https://github.com/heliaxdev/minijuvix/pull/163">#163</a>
+(<a href="https://github.com/paulcadman">paulcadman</a>)</li>
+<li>Update stdlib to work with version 0.2
+<a href="https://github.com/heliaxdev/minijuvix/pull/160">#160</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Update README usage example to use the compile command
+<a href="https://github.com/heliaxdev/minijuvix/pull/158">#158</a>
+(<a href="https://github.com/paulcadman">paulcadman</a>)</li>
+<li>Remove dead code related to the pipeline
+<a href="https://github.com/heliaxdev/minijuvix/pull/156">#156</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Add negative test for AppLeftImplicit
+<a href="https://github.com/heliaxdev/minijuvix/pull/154">#154</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Add positive test designed for implicit arguments
+<a href="https://github.com/heliaxdev/minijuvix/pull/153">#153</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Remove ExpressionTyped from MicroJuvix
+<a href="https://github.com/heliaxdev/minijuvix/pull/143">#143</a>
+(<a href="https://github.com/janmasrovira">janmasrovira</a>)</li>
+<li>Revision for package.yaml and minor deletions
+<a href="https://github.com/heliaxdev/minijuvix/pull/135">#135</a>
+(<a href="https://github.com/jonaprieto">jonaprieto</a>)</li>
+</ul>
 <h2 id="v014"><a class="header" href="#v014"><a href="https://github.com/heliaxdev/minijuvix/tree/v0.1.4">v0.1.4</a></a></h2>
 <p>(2022-05-30)</p>
 <p><a href="https://github.com/heliaxdev/minijuvix/compare/v0.1.3...v0.1.4">Full
