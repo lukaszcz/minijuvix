@@ -138,37 +138,58 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="minijuvix"><a class="header" href="#minijuvix">MiniJuvix</a></h1>
-<a href="https://github.com/heliaxdev/minijuvix/blob/main/LICENSE">
-<img alt="LICENSE" src="https://img.shields.io/badge/license-GPL--3.0--only-blue.svg" />
-</a>
 <a href="https://github.com/heliaxdev/MiniJuvix/actions/workflows/ci.yml">
 <img alt="CI status" src="https://github.com/heliaxdev/MiniJuvix/actions/workflows/ci.yml/badge.svg" />
 </a>
 <a href="https://github.com/heliaxdev/minijuvix/tags">
 <img alt="" src="https://img.shields.io/github/v/release/heliaxdev/minijuvix?include_prereleases" />
 </a>
-<a href="https://github.com/heliaxdev/minijuvix/issues">
-<img alt="" src="https://img.shields.io/github/issues/heliaxdev/minijuvix" />
+<a href="https://github.com/heliaxdev/minijuvix/blob/main/LICENSE">
+<img alt="LICENSE" src="https://img.shields.io/badge/license-GPL--3.0--only-blue.svg" />
 </a>
+<p><a href="https://github.com/heliaxdev/minijuvix/actions/workflows/pages/pages-build-deployment"><img
+src="https://github.com/heliaxdev/minijuvix/actions/workflows/pages/pages-build-deployment/badge.svg"
+alt="pages-build-deployment" /></a></p>
 <a href="https://github.com/heliaxdev/MiniJuvix">
 <img align="right" width="300" height="300" alt="MiniJuvix Mascot" src="https://juvix.org/_nuxt/img/seating-mascot.051c86a.svg" />
 </a>
-<p>MiniJuvix is a pre-alpha programming language for writing efficient
-formally-verified <a href="https://anoma.network/blog/validity-predicates/">validity
-predicates</a>, which can
-be deployed to various distributed ledgers. MiniJuvix is part of the
-Anoma's Juvix Toolkit. At the moment, this is software released for
-experimentation and research purposes only as no warranty is provided or
-implied yet.</p>
-<p>MiniJuvix aims to address many issues that we have experienced while
-trying to write and deploy decentralized applications present in the
-ecosystem of smart-contracts:</p>
+<p>MiniJuvix is a research programming language created by
+<a href="https://heliax.dev/">Heliax</a> as a first step toward creating more
+robust and reliable alternatives for formally verified smart contracts
+than existing languages. The MiniJuvix language is constantly evolving,
+open-source, functional, and statically typed with special support for
+compiling <a href="https://anoma.network/blog/validity-predicates/">validity
+predicates</a> to the <code>C</code>
+language, which can be deployed to various distributed ledgers including
+<a href="https://anoma.net/">Anoma</a>.</p>
+<p>The MiniJuvix programming language allows developers to write programs
+with a high degree of assurance that they will meet specific standards.
+This is due to the fact that several static analyses are performed
+during compilation, including, for example, scope, termination, arity,
+and type checking. As a result, functional programs, especially validity
+predicates, can be written with greater confidence that they will be
+free of runtime errors. <a href="https://github.com/heliaxdev/minijuvix/tree/main/examples/milestone">Here are some examples of MiniJuvix
+programs</a>.</p>
+<p>The language features:</p>
 <ul>
-<li>the difficulty of adequate program verification,</li>
-<li>the ceiling of compositional complexity,</li>
-<li>the illegibility of execution costs, and</li>
-<li>the lock-in to particular backends.</li>
+<li>☒ Unicode syntax</li>
+<li>☒ parametric polymorphism</li>
+<li>☒ inductive and parametric data types</li>
+<li>☒ higher-order functions</li>
+<li>☒ implicit arguments</li>
+<li>☒ holes in programs</li>
+<li>☒ axioms for non-computable terms</li>
 </ul>
+<p>Additionally, the foreign and compile blocks syntax enable developers to
+compile a program to different backends including the <code>C</code> language. The
+MiniJuvix module system further permits splitting programs into several
+modules to build libraries which can be later documented by generating
+HTML files based on the codebase, see for example, <a href="https://heliaxdev.github.io/minijuvix-stdlib/">the Minijuvix
+standard library's
+website</a>. For futher
+details, please refer to <a href="https://heliaxdev.github.io/minijuvix/">the MiniJuvix
+book</a> which icludes our <a href="https://heliaxdev.github.io/minijuvix/introduction/changelog.html">latest
+updates</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changelog"><a class="header" href="#changelog">Changelog</a></h1>
 <a href="https://github.com/heliaxdev/MiniJuvix">
 <img align="right" width="300" height="300" alt="MiniJuvix Mascot" src="https://juvix.org/_nuxt/img/greeting-mascot.ad540a1.svg" />
@@ -1348,37 +1369,58 @@ otherwise, let <code>â ≔ a₁ … aₖ</code> and replace the original expres
 replace the concrete type applications by the corresponding
 monomorphized type. Proceed analogously to the previous section.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="minijuvix-1"><a class="header" href="#minijuvix-1">MiniJuvix</a></h1>
-<a href="https://github.com/heliaxdev/minijuvix/blob/main/LICENSE">
-<img alt="LICENSE" src="https://img.shields.io/badge/license-GPL--3.0--only-blue.svg" />
-</a>
 <a href="https://github.com/heliaxdev/MiniJuvix/actions/workflows/ci.yml">
 <img alt="CI status" src="https://github.com/heliaxdev/MiniJuvix/actions/workflows/ci.yml/badge.svg" />
 </a>
 <a href="https://github.com/heliaxdev/minijuvix/tags">
 <img alt="" src="https://img.shields.io/github/v/release/heliaxdev/minijuvix?include_prereleases" />
 </a>
-<a href="https://github.com/heliaxdev/minijuvix/issues">
-<img alt="" src="https://img.shields.io/github/issues/heliaxdev/minijuvix" />
+<a href="https://github.com/heliaxdev/minijuvix/blob/main/LICENSE">
+<img alt="LICENSE" src="https://img.shields.io/badge/license-GPL--3.0--only-blue.svg" />
 </a>
+<p><a href="https://github.com/heliaxdev/minijuvix/actions/workflows/pages/pages-build-deployment"><img
+src="https://github.com/heliaxdev/minijuvix/actions/workflows/pages/pages-build-deployment/badge.svg"
+alt="pages-build-deployment" /></a></p>
 <a href="https://github.com/heliaxdev/MiniJuvix">
 <img align="right" width="300" height="300" alt="MiniJuvix Mascot" src="https://juvix.org/_nuxt/img/seating-mascot.051c86a.svg" />
 </a>
-<p>MiniJuvix is a pre-alpha programming language for writing efficient
-formally-verified <a href="https://anoma.network/blog/validity-predicates/">validity
-predicates</a>, which can
-be deployed to various distributed ledgers. MiniJuvix is part of the
-Anoma's Juvix Toolkit. At the moment, this is software released for
-experimentation and research purposes only as no warranty is provided or
-implied yet.</p>
-<p>MiniJuvix aims to address many issues that we have experienced while
-trying to write and deploy decentralized applications present in the
-ecosystem of smart-contracts:</p>
+<p>MiniJuvix is a research programming language created by
+<a href="https://heliax.dev/">Heliax</a> as a first step toward creating more
+robust and reliable alternatives for formally verified smart contracts
+than existing languages. The MiniJuvix language is constantly evolving,
+open-source, functional, and statically typed with special support for
+compiling <a href="https://anoma.network/blog/validity-predicates/">validity
+predicates</a> to the <code>C</code>
+language, which can be deployed to various distributed ledgers including
+<a href="https://anoma.net/">Anoma</a>.</p>
+<p>The MiniJuvix programming language allows developers to write programs
+with a high degree of assurance that they will meet specific standards.
+This is due to the fact that several static analyses are performed
+during compilation, including, for example, scope, termination, arity,
+and type checking. As a result, functional programs, especially validity
+predicates, can be written with greater confidence that they will be
+free of runtime errors. <a href="https://github.com/heliaxdev/minijuvix/tree/main/examples/milestone">Here are some examples of MiniJuvix
+programs</a>.</p>
+<p>The language features:</p>
 <ul>
-<li>the difficulty of adequate program verification,</li>
-<li>the ceiling of compositional complexity,</li>
-<li>the illegibility of execution costs, and</li>
-<li>the lock-in to particular backends.</li>
+<li>☒ Unicode syntax</li>
+<li>☒ parametric polymorphism</li>
+<li>☒ inductive and parametric data types</li>
+<li>☒ higher-order functions</li>
+<li>☒ implicit arguments</li>
+<li>☒ holes in programs</li>
+<li>☒ axioms for non-computable terms</li>
 </ul>
+<p>Additionally, the foreign and compile blocks syntax enable developers to
+compile a program to different backends including the <code>C</code> language. The
+MiniJuvix module system further permits splitting programs into several
+modules to build libraries which can be later documented by generating
+HTML files based on the codebase, see for example, <a href="https://heliaxdev.github.io/minijuvix-stdlib/">the Minijuvix
+standard library's
+website</a>. For futher
+details, please refer to <a href="https://heliaxdev.github.io/minijuvix/">the MiniJuvix
+book</a> which icludes our <a href="https://heliaxdev.github.io/minijuvix/introduction/changelog.html">latest
+updates</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-minijuvix-dev-team"><a class="header" href="#the-minijuvix-dev-team">The MiniJuvix Dev Team</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="minijuvix-community"><a class="header" href="#minijuvix-community">MiniJuvix community</a></h1>
 <p>We would love to hear what you think of MiniJuvix! Join us on
