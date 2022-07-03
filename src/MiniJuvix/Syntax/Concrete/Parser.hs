@@ -37,10 +37,13 @@ entryParser e = do
       FilePath ->
       Sem r (Module 'Parsed 'ModuleTop)
     goFile fileName = do
-      input <- readFile' fileName
-      case runModuleParser (e ^. entryPointRoot) fileName input of
-        Left er -> throw er
-        Right (tbl, m) -> mergeTable tbl $> m
+      readFileResult <- readFile' fileName
+      case readFileResult of
+        Left _ -> undefined
+        Right input -> do
+          case runModuleParser (e ^. entryPointRoot) fileName input of
+            Left er -> throw er
+            Right (tbl, m) -> mergeTable tbl $> m
 
 -- | The fileName is only used for reporting errors. It is safe to pass
 -- an empty string.

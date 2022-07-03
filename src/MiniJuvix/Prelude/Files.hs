@@ -3,8 +3,15 @@ module MiniJuvix.Prelude.Files where
 import Data.HashMap.Strict qualified as HashMap
 import MiniJuvix.Prelude.Base
 
+newtype FilesError = StdlibShadowing FileInfo
+  deriving stock (Show)
+
+newtype FileInfo = FileInfo
+  { _fileInfoPath :: FilePath }
+  deriving stock (Show)
+
 data Files m a where
-  ReadFile' :: FilePath -> Files m Text
+  ReadFile' :: FilePath -> Files m (Either FilesError Text)
   EqualPaths' :: FilePath -> FilePath -> Files m (Maybe Bool)
   RegisterStdlib :: [(FilePath, Text)] -> Files m ()
 
@@ -14,16 +21,18 @@ newtype FilesState = FilesState
   {_stdlibTable :: HashMap FilePath Text}
 
 makeLenses ''FilesState
+makeLenses ''FileInfo
 
 initState :: FilesState
 initState = FilesState mempty
 
-readStdLibOrFile :: FilePath -> HashMap FilePath Text -> IO Text
+readStdLibOrFile :: FilePath -> HashMap FilePath Text -> IO (Either FilesError Text)
 readStdLibOrFile f stdlib = do
   cf <- canonicalizePath f
   case HashMap.lookup cf stdlib of
-    Nothing -> readFile f
-    Just c -> return c
+    Nothing -> Right <$> readFile f
+    Just c -> do
+      ifM (doesFileExist f) (return $ Left (StdlibShadowing (FileInfo f))) (return (Right c))
 
 seqFst :: (IO a, b) -> IO (a, b)
 seqFst (ma, b) = do
@@ -63,6 +72,6 @@ runFilesPure fs = interpret $ \case
             <> " does not exist."
             <> "\nThe contents of the mocked file system are:\n"
             <> unlines (HashMap.keys fs)
-    Just c -> return c
+    Just c -> return (Right c)
   EqualPaths' _ _ -> return Nothing
   RegisterStdlib {} -> return ()

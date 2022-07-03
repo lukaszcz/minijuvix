@@ -205,7 +205,7 @@ checkImport ::
 checkImport import_@(Import path) = do
   checkCycle
   cache <- gets (^. scoperModulesCache . cachedModules)
-  moduleRef <- maybe (readParseModule path >>= local addImport . checkTopModule) return (cache ^. at path)
+  moduleRef <- maybe (readParseModule import_ >>= local addImport . checkTopModule) return (cache ^. at path)
   let checked = moduleRef ^. moduleRefModule
       sname = checked ^. modulePath
       moduleId = sname ^. S.nameId
@@ -367,15 +367,18 @@ exportScope Scope {..} = do
 
 readParseModule ::
   Members '[Error ScoperError, Reader ScopeParameters, Files, Parser.InfoTableBuilder] r =>
-  TopModulePath ->
+  Import 'Parsed ->
   Sem r (Module 'Parsed 'ModuleTop)
-readParseModule mp = do
+readParseModule import_@(Import mp) = do
   path <- modulePathToFilePath mp
-  txt <- readFile' path
-  root <- asks (^. scopeRootPath)
-  case runModuleParser root path txt of
-    Left err -> throw (ErrParser (MegaParsecError err))
-    Right (tbl, m) -> Parser.mergeTable tbl $> m
+  readFileResult <- readFile' path
+  case readFileResult of
+    Left err -> throw (ErrReadFileFailed (ReadFileError err (ImportCause import_)))
+    Right txt -> do
+      root <- asks (^. scopeRootPath)
+      case runModuleParser root path txt of
+        Left err -> throw (ErrParser (MegaParsecError err))
+        Right (tbl, m) -> Parser.mergeTable tbl $> m
 
 modulePathToFilePath ::
   Members '[Reader ScopeParameters] r =>

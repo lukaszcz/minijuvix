@@ -9,6 +9,7 @@ import Data.HashMap.Strict qualified as HashMap
 import Data.HashSet qualified as HashSet
 import Data.List.NonEmpty.Extra qualified as NonEmpty
 import MiniJuvix.Prelude
+import MiniJuvix.Prelude.Files qualified as Files
 import MiniJuvix.Prelude.Pretty
 import MiniJuvix.Syntax.Concrete.Language
 import MiniJuvix.Syntax.Concrete.Language qualified as L
@@ -331,6 +332,28 @@ newtype MegaParsecError = MegaParsecError
 
 instance ToGenericError MegaParsecError where
   genericError (MegaParsecError e) = genericError e
+
+newtype ReadFileErrorCause = ImportCause (Import 'Parsed)
+  deriving stock (Show)
+
+data ReadFileError = ReadFileError
+  { _readFileError :: Files.FilesError,
+    _readFileErrorCause :: ReadFileErrorCause
+  }
+  deriving stock (Show)
+
+instance ToGenericError ReadFileError where
+  genericError ReadFileError {..} =
+    GenericError
+      { _genericErrorLoc = i,
+        _genericErrorMessage = prettyError msg,
+        _genericErrorIntervals = [i]
+      }
+    where
+      i = case _readFileErrorCause of
+        ImportCause imp -> getLoc imp
+      msg = case _readFileError of
+        StdlibShadowing (FileInfo {..}) -> "The module defined in:" <> line <> pretty (pack _fileInfoPath) <> line <> "shadows a module in the standard library"
 
 newtype UnusedOperatorDef = UnusedOperatorDef
   { _unusedOperatorDef :: OperatorSyntaxDef
