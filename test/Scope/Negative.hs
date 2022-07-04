@@ -190,6 +190,13 @@ tests =
         ErrMultipleCompileBlockSameName {} -> Nothing
         _ -> wrongError,
     NegTest
+      "Multiple rules for a backend inside a compile block"
+      "CompileBlocks"
+      "MultipleCompileRuleSameBackend.mjuvix"
+      $ \case
+        ErrMultipleCompileRuleSameBackend {} -> Nothing
+        _ -> wrongError,
+    NegTest
       "issue 230"
       "230"
       "Prod.mjuvix"
