@@ -190,11 +190,11 @@ tests =
         ErrMultipleCompileBlockSameName {} -> Nothing
         _ -> wrongError,
     NegTest
-      "Multiple rules for a backend inside a compile block"
-      "CompileBlocks"
-      "MultipleCompileRuleSameBackend.mjuvix"
+      "issue 230"
+      "230"
+      "Prod.mjuvix"
       $ \case
-        ErrMultipleCompileRuleSameBackend {} -> Nothing
+        ErrQualSymNotInScope {} -> Nothing
         _ -> wrongError,
     NegTest
       "Compile block for a unsupported kind of expression"
